@@ -3,3 +3,4 @@
 firebase-credentials.json
 google-services.json
 vendor*
+*.lock
