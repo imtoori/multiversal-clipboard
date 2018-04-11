@@ -38,7 +38,7 @@ var CREDENTIALS = struct {
 	Auth_provider_x509_cert_url string `json:"auth_provider_x509_cert_url"`
 	Client_x509_cert_url        string `json:"client_x509_cert_url"`
 }{
-!!!!SET HERE THE CREDENTIALS
+	SET YOUR CREDENTIALS
 }
 
 func main() {
@@ -84,8 +84,7 @@ func pollingFunction() {
 
 }
 func setClipboard(clipboard string) error {
-	cmd := fmt.Sprint("echo -n ", clipboard, " | ", "pbcopy")
-	print(cmd)
+	cmd := fmt.Sprint("echo -n '", clipboard, "' | ", "pbcopy")
 	if o, e := exec.Command("bash", "-c", cmd).Output(); e != nil {
 		fmt.Println("Error reading clipboard", e.Error())
 		return e
