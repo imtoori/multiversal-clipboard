@@ -55,3 +55,4 @@ Portions of this project utilize the following copyrighted material, the use of 
 - [ ] Add some ux on Mac os using systray
 - [ ] Port on windows/linux
 - [ ] Share the clipboard with more than one device
+- [ ] Encrypt clipboards
