@@ -10,6 +10,8 @@ import (
 	"google.golang.org/api/option"
 	"os"
 	"os/exec"
+	"golang.org/x/oauth2/google"
+	"encoding/json"
 )
 
 var (
@@ -23,6 +25,21 @@ var (
 const (
 	DATABASEURL = "https://multiversal-clipboard.firebaseio.com/"
 )
+
+var CREDENTIALS = struct {
+	Type                        string `json:"type"`
+	Project_id                  string `json:"project_id"`
+	Private_key_id              string `json:"private_key_id"`
+	Private_key                 string `json:"private_key"`
+	Client_email                string `json:"client_email"`
+	Client_id                   string `json:"client_id"`
+	Auth_uri                    string `json:"auth_uri"`
+	Token_uri                   string `json:"token_uri"`
+	Auth_provider_x509_cert_url string `json:"auth_provider_x509_cert_url"`
+	Client_x509_cert_url        string `json:"client_x509_cert_url"`
+}{
+!!!!SET HERE THE CREDENTIALS
+}
 
 func main() {
 	if userId = os.Args[1]; userId != "" {
@@ -109,8 +126,22 @@ func setRemoteClipboard() {
 
 func initFCM() {
 	fmt.Println("Init fcm..")
+
 	var err error
-	opt := option.WithCredentialsFile("firebase-credentials.json")
+	var j []byte
+
+	if j, err = json.Marshal(CREDENTIALS); err != nil {
+		fmt.Println("Error reading credentials", err)
+	}
+
+	credentials, err := google.CredentialsFromJSON(context.Background(), j,"https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/userinfo.email","https://www.googleapis.com/auth/firebase.database")
+
+	opt := option.WithCredentials(&google.Credentials{
+		TokenSource: credentials.TokenSource,
+		JSON:        credentials.JSON,
+		ProjectID:   credentials.ProjectID,
+	})
+
 	config := &firebase.Config{
 		DatabaseURL: DATABASEURL,
 	}
