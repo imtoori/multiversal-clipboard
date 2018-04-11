@@ -1,0 +1,5 @@
+.idea*
+.vscode*
+firebase-credentials.json
+google-services.json
+vendor*
