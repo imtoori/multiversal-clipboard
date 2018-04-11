@@ -1,3 +1,5 @@
+**v0.1**
+
 # multiversal-clipboard
 Android and golang apps to share clipboard between Mac and smartphone using firebase
 
@@ -45,9 +47,9 @@ Feel free to fork and improve multiversal-clipboard in any way you want, make a 
 
 ## Upcoming
 
-[] Better Android app design
-[] Deploy Android app on play store
-[] Ability to set custom userId/account
-[] Add some ux on Mac os using systray
-[] Port on windows/linux
-[] Share the clipboard with more than one device
+- [ ] Better Android app design
+- [ ] Deploy Android app on play store
+- [ ] Ability to set custom userId/account
+- [ ] Add some ux on Mac os using systray
+- [ ] Port on windows/linux
+- [ ] Share the clipboard with more than one device
