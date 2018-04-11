@@ -40,7 +40,9 @@ In golang a cron monitors both the clipboard and the firebase database.
 Contributions of any kind are more than welcome! 
 Feel free to fork and improve multiversal-clipboard in any way you want, make a pull request, or open an issue.
 
-## Credits
+## Acknowledgements
+
+Portions of this project utilize the following copyrighted material, the use of which is hereby acknowledged:
 
 - https://github.com/robfig/cron
 - https://github.com/getlantern/systray
